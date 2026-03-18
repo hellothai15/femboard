@@ -1,0 +1,93 @@
+﻿<%- include('partials/header', { extraCss: false, extraJs: false }) %>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-sparkles">โจ</div>
+    <h1 class="hero-title">Welcome to <span class="gradient-text">Femboard</span></h1>
+    <p class="hero-subtitle">A cute and cozy community where everyone is welcome! Share outfits, get advice, make friends, and be yourself ๐’–</p>
+    <div class="hero-buttons">
+      <a href="/boards" class="btn btn-primary btn-lg">Browse Boards</a>
+      <a href="/auth/register" class="btn btn-outline btn-lg">Join Us โจ</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Members</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Posts</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">8</span>
+        <span class="stat-label">Boards</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-decoration">
+    <div class="floating-element fe-1">๐ธ</div>
+    <div class="floating-element fe-2">๐’–</div>
+    <div class="floating-element fe-3">โจ</div>
+    <div class="floating-element fe-4">๐ฆ</div>
+    <div class="floating-element fe-5">๐</div>
+  </div>
+</section>
+
+<section class="features">
+  <h2 class="section-title">Why You'll Love It Here ๐’•</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">๐ก๏ธ</div>
+      <h3>Safe Space</h3>
+      <p>A welcoming, moderated community where you can be yourself without judgment.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">๐‘—</div>
+      <h3>Fashion Corner</h3>
+      <p>Share your cutest outfits, get style advice, and discover new looks!</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">๐’ฌ</div>
+      <h3>Active Discussions</h3>
+      <p>Join conversations about everything from skincare to gaming to life advice.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">๐จ</div>
+      <h3>Creative Community</h3>
+      <p>Share your art, music, writing, and other creative projects with friends.</p>
+    </div>
+  </div>
+</section>
+
+<section class="boards-preview">
+  <h2 class="section-title">Popular Boards ๐</h2>
+  <div class="boards-preview-grid">
+    <a href="/boards/cute" class="board-preview-card" style="--card-accent: #FF69B4">
+      <span class="board-icon">๐‘—</span>
+      <span class="board-name">Cute Outfits</span>
+    </a>
+    <a href="/boards/beauty" class="board-preview-card" style="--card-accent: #E91E9B">
+      <span class="board-icon">๐’</span>
+      <span class="board-name">Beauty</span>
+    </a>
+    <a href="/boards/gaming" class="board-preview-card" style="--card-accent: #8E44AD">
+      <span class="board-icon">๐ฎ</span>
+      <span class="board-name">Gaming</span>
+    </a>
+    <a href="/boards/random" class="board-preview-card" style="--card-accent: #F39C12">
+      <span class="board-icon">๐ฒ</span>
+      <span class="board-name">Random</span>
+    </a>
+  </div>
+  <a href="/boards" class="btn btn-outline">View All Boards โ’</a>
+</section>
+
+<section class="cta">
+  <div class="cta-content">
+    <h2>Ready to Join? ๐</h2>
+    <p>Create your account in seconds and start connecting with an amazing community!</p>
+    <a href="/auth/register" class="btn btn-primary btn-lg">Create Account ๐’–</a>
+  </div>
+</section>
+
+<%- include('partials/footer_partial', { extraJs: false }) %>
