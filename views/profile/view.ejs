@@ -1,0 +1,68 @@
+﻿<%- include('../partials/header', { extraCss: 'profile.css', extraJs: false }) %>
+
+<section class="profile-page">
+  <div class="container">
+    <div class="profile-header">
+      <div class="profile-cover"></div>
+      <div class="profile-main">
+        <div class="profile-avatar-wrapper">
+          <img src="<%= profileUser.avatar_url %>" alt="<%= profileUser.username %>" class="profile-avatar">
+          <% if (profileUser.role !== 'member') { %>
+            <span class="profile-badge badge-<%= profileUser.role %>"><%= profileUser.role %></span>
+          <% } %>
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-name"><%= profileUser.display_name || profileUser.username %></h1>
+          <span class="profile-username">@<%= profileUser.username %></span>
+          <% if (profileUser.bio) { %>
+            <p class="profile-bio"><%= profileUser.bio %></p>
+          <% } %>
+          <div class="profile-meta">
+            <span>๐“… Joined <%= new Date(profileUser.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %></span>
+          </div>
+        </div>
+        <% if (isOwnProfile) { %>
+          <a href="/profile/<%= profileUser.username %>/edit" class="btn btn-outline">โ๏ธ Edit Profile</a>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="profile-content">
+      <div class="profile-stats-bar">
+        <div class="profile-stat">
+          <strong><%= stats.postCount %></strong>
+          <span>Posts</span>
+        </div>
+        <div class="profile-stat">
+          <strong><%= stats.threadCount %></strong>
+          <span>Threads</span>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Recent Activity ๐“</h2>
+        <% if (recentPosts.length === 0) { %>
+          <div class="empty-state">
+            <div class="empty-icon">๐ธ</div>
+            <p>No posts yet!</p>
+          </div>
+        <% } else { %>
+          <div class="activity-list">
+            <% recentPosts.forEach(post => { %>
+              <a href="/boards/<%= post.board_slug %>/thread/<%= post.thread_id %>#post-<%= post.id %>" class="activity-card">
+                <div class="activity-thread">
+                  <span class="activity-label">replied in</span>
+                  <strong><%= post.thread_title %></strong>
+                </div>
+                <p class="activity-preview"><%= post.content.substring(0, 150) %><%= post.content.length > 150 ? '...' : '' %></p>
+                <span class="activity-date"><%= new Date(post.created_at).toLocaleDateString() %></span>
+              </a>
+            <% }); %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer_partial', { extraJs: false }) %>
