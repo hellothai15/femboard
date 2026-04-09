@@ -1,0 +1,70 @@
+﻿<%- include('../partials/header', { extraCss: 'board.css', extraJs: 'board.js' }) %>
+
+<section class="thread-page">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> / <a href="/boards">Boards</a> / <a href="/boards/<%= thread.board_slug %>">/<%= thread.board_slug %>/</a> / <span><%= thread.title %></span>
+    </div>
+
+    <div class="thread-header">
+      <h1><%= thread.title %></h1>
+      <div class="thread-header-meta">
+        <span>Started by <strong><%= thread.display_name || thread.username %></strong></span>
+        <span>๐‘๏ธ <%= thread.view_count %> views</span>
+        <% if (thread.is_locked) { %><span class="badge badge-locked">๐”’ Locked</span><% } %>
+      </div>
+    </div>
+
+    <div class="posts-list">
+      <% posts.forEach((post, index) => { %>
+        <div class="post-card" id="post-<%= post.id %>">
+          <div class="post-sidebar">
+            <img src="<%= post.avatar_url %>" alt="<%= post.username %>" class="post-avatar">
+            <a href="/profile/<%= post.username %>" class="post-username"><%= post.display_name || post.username %></a>
+            <span class="post-role role-<%= post.role %>"><%= post.role %></span>
+          </div>
+          <div class="post-body">
+            <div class="post-header">
+              <span class="post-number">#<%= index + 1 + ((page - 1) * 25) %></span>
+              <span class="post-date"><%= new Date(post.created_at).toLocaleString() %></span>
+            </div>
+            <div class="post-content">
+              <%- post.content.replace(/\n/g, '<br>') %>
+            </div>
+            <div class="post-actions">
+              <% if (user) { %>
+                <button class="post-action-btn" onclick="quotePost(<%= post.id %>)">๐’ฌ Quote</button>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+    <% if (totalPages > 1) { %>
+      <div class="pagination">
+        <% for(let i = 1; i <= totalPages; i++) { %>
+          <a href="?page=<%= i %>" class="page-link <%= i === page ? 'active' : '' %>"><%= i %></a>
+        <% } %>
+      </div>
+    <% } %>
+
+    <% if (user && !thread.is_locked) { %>
+      <div class="reply-section">
+        <h3>๐’ฌ Post a Reply</h3>
+        <form action="/boards/<%= thread.board_slug %>/thread/<%= thread.id %>/reply" method="POST">
+          <div class="form-group">
+            <textarea name="content" id="replyContent" required rows="4" placeholder="Write your reply..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Post Reply ๐ธ</button>
+        </form>
+      </div>
+    <% } else if (!user) { %>
+      <div class="login-prompt">
+        <p>๐’– <a href="/auth/login">Log in</a> or <a href="/auth/register">sign up</a> to reply!</p>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('../partials/footer_partial', { extraJs: 'board.js' }) %>

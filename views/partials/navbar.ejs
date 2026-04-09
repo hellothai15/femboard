@@ -1,0 +1,30 @@
+﻿<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-icon">๐ธ</span>
+      <span class="logo-text">Femboard</span>
+    </a>
+    
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/boards" class="nav-link">Boards</a>
+      <% if (user) { %>
+        <a href="/profile/<%= user.username %>" class="nav-link">
+          <img src="<%= user.avatar_url %>" alt="avatar" class="nav-avatar">
+          <%= user.display_name || user.username %>
+        </a>
+        <a href="/auth/logout" class="nav-link nav-btn btn-outline">Logout</a>
+      <% } else { %>
+        <a href="/auth/login" class="nav-link nav-btn btn-outline">Login</a>
+        <a href="/auth/register" class="nav-link nav-btn btn-primary">Sign Up</a>
+      <% } %>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
