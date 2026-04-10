@@ -1,118 +1,126 @@
-﻿# Femboard ๐ธ
+# Femboard 🌸
 
-A cute and cozy web forum for the femboy community! Built with love and pastels.
+A cute and cozy web forum built for the femboy community. Designed with pastel aesthetics, a welcoming vibe, and everything you need to hang out and be yourself.
 
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)
 ![Express](https://img.shields.io/badge/Express-4.x-blue?logo=express)
 ![License](https://img.shields.io/badge/License-MIT-pink)
 
-## โจ Features
+## ✨ Features
 
-- ๐’ฌ **Discussion Boards** - Multiple themed categories for every interest
-- ๐‘ค **User Profiles** - Customizable profiles with avatar uploads
-- ๐จ **Cute Pastel Theme** - Gorgeous glassmorphism design with animations
-- ๐“ฑ **Responsive Design** - Looks great on desktop, tablet, and mobile
-- ๐”’ **Secure Auth** - bcrypt password hashing and session management
-- ๐ก๏ธ **Safe Space** - Role-based moderation system
+- 💬 **Discussion Boards** — Browse and post across multiple topic-based boards
+- 👤 **User Profiles** — Create your profile, upload an avatar, and show off your bio
+- 🎨 **Cute Pastel Theme** — Glassmorphism UI with smooth animations and pastel colors
+- 📱 **Responsive** — Works on desktop, tablet, and mobile out of the box
+- 🔒 **Secure Authentication** — Passwords are hashed with bcrypt, sessions managed server-side
+- 🛡️ **Moderation Tools** — Role-based access with admin and moderator support
 
-## ๐€ Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### What You Need
 
-- Node.js 18+
+- Node.js 18 or higher
 - npm
 
-### Installation
+### Setup
 
-1. Clone the repository:
+Clone the repo and install everything:
 ```bash
 git clone https://github.com/yourusername/femboard.git
 cd femboard
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create environment file:
+Copy the example environment file and tweak it if needed:
 ```bash
 cp .env.example .env
 ```
 
-4. Seed the database:
+Seed the database with default boards:
 ```bash
 npm run seed
 ```
 
-5. Start the development server:
+Start the dev server:
 ```bash
 npm run dev
 ```
 
-6. Open http://localhost:3000 in your browser ๐ธ
+Then head over to [http://localhost:3000](http://localhost:3000) and you're good to go 🌸
 
-## ๐“ Project Structure
+### Running with Docker
+
+If you prefer Docker, just build and run:
+```bash
+docker build -t femboard .
+docker run -p 3000:3000 femboard
+```
+
+## 📁 Project Structure
 
 ```
 femboard/
-โ”โ”€โ”€ config/          # Database configuration
-โ”โ”€โ”€ middleware/       # Auth middleware
-โ”โ”€โ”€ models/          # Data models (User, Board, Thread, Post)
-โ”โ”€โ”€ public/          # Static assets
-โ”   โ”โ”€โ”€ css/         # Stylesheets
-โ”   โ”โ”€โ”€ js/          # Client-side JavaScript
-โ”   โ””โ”€โ”€ uploads/     # User-uploaded files
-โ”โ”€โ”€ routes/          # Express route handlers
-โ”โ”€โ”€ scripts/         # Utility scripts
-โ”โ”€โ”€ views/           # EJS templates
-โ”   โ”โ”€โ”€ auth/        # Login & register pages
-โ”   โ”โ”€โ”€ boards/      # Board & thread pages
-โ”   โ”โ”€โ”€ partials/    # Reusable template parts
-โ”   โ””โ”€โ”€ profile/     # User profile pages
-โ””โ”€โ”€ server.js        # App entry point
+├── config/          # Database setup
+├── middleware/       # Auth checks and permission guards
+├── models/          # Data models — User, Board, Thread, Post
+├── public/
+│   ├── css/         # Stylesheets (main, auth, board, profile, responsive)
+│   ├── js/          # Client-side scripts
+│   └── uploads/     # Uploaded avatars go here
+├── routes/          # Express route handlers
+├── scripts/         # Seed script and utilities
+├── views/           # EJS templates
+│   ├── auth/        # Login and registration
+│   ├── boards/      # Board listing, threads, posts
+│   ├── partials/    # Shared layout (navbar, header, footer)
+│   └── profile/     # Profile view and edit
+└── server.js        # Main entry point
 ```
 
-## ๐จ Board Categories
+## 🎨 Boards
 
-| Board | Description |
-|-------|-------------|
-| /cute/ | Cute Outfits & Fashion |
-| /beauty/ | Beauty & Skincare |
-| /fit/ | Fitness & Health |
-| /tech/ | Technology |
-| /random/ | Random Discussion |
-| /support/ | Support & Advice |
-| /creative/ | Creative Corner |
-| /gaming/ | Gaming |
+| Board | What's it for? |
+|-------|----------------|
+| `/cute/` | Outfit sharing and fashion advice |
+| `/beauty/` | Skincare tips, makeup, and self-care |
+| `/fit/` | Workouts, nutrition, and staying healthy |
+| `/tech/` | Tech talk, programming, and gadgets |
+| `/random/` | Whatever's on your mind |
+| `/support/` | A safe space to vent, ask for advice, or just talk |
+| `/creative/` | Art, music, writing — show off your creative side |
+| `/gaming/` | Video games, tabletop, and everything in between |
 
-## ๐ ๏ธ Tech Stack
+## 🛠️ Tech Stack
 
-- **Runtime:** Node.js
-- **Framework:** Express.js
-- **Database:** SQLite3 (via better-sqlite3)
-- **Templates:** EJS
-- **Auth:** bcryptjs + express-session
-- **Styling:** Custom CSS with CSS Variables
+| Layer | Technology |
+|-------|-----------|
+| Runtime | Node.js |
+| Framework | Express.js |
+| Database | SQLite3 (via better-sqlite3) |
+| Templates | EJS |
+| Auth | bcryptjs + express-session |
+| Styling | Custom CSS with CSS variables |
 
-## ๐“ Contributing
+## 📝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (git checkout -b feature/amazing-feature)
-3. Commit your changes (git commit -m 'Add amazing feature')
-4. Push to the branch (git push origin feature/amazing-feature)
+We'd love contributions! Here's the quick version:
+
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/something-cool`)
+3. Make your changes and commit them (`git commit -m 'Add something cool'`)
+4. Push your branch (`git push origin feature/something-cool`)
 5. Open a Pull Request
 
-## ๐“ License
+Check out [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📄 License
 
-## ๐’– Acknowledgments
+MIT — see [LICENSE](LICENSE) for the full text.
 
-- Built with love for the community
-- Inspired by cute aesthetics and cozy vibes
-- Special thanks to all contributors!
+## 💖 Acknowledgments
+
+Built with love for the community. Inspired by cute aesthetics and the desire to make a cozy little corner of the internet. Thanks to everyone who contributes!
 
 ---
 
-Made with ๐ธ by the Femboard team
+Made with 🌸 by the Femboard team
