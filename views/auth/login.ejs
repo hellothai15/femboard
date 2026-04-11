@@ -4,14 +4,14 @@
   <div class="auth-container">
     <div class="auth-card">
       <div class="auth-header">
-        <span class="auth-icon">๐ธ</span>
+        <span class="auth-icon">[Login]</span>
         <h1>Welcome Back!</h1>
         <p>Log in to your Femboard account</p>
       </div>
 
       <% if (error) { %>
         <div class="alert alert-error">
-          <span>โ ๏ธ</span> <%= error %>
+          <span>[Error]</span> <%= error %>
         </div>
       <% } %>
 
@@ -19,7 +19,7 @@
         <div class="form-group">
           <label for="username">Username</label>
           <div class="input-wrapper">
-            <span class="input-icon">๐‘ค</span>
+            <span class="input-icon">[User]</span>
             <input type="text" id="username" name="username" required placeholder="Your username" autocomplete="username">
           </div>
         </div>
@@ -27,12 +27,12 @@
         <div class="form-group">
           <label for="password">Password</label>
           <div class="input-wrapper">
-            <span class="input-icon">๐”’</span>
+            <span class="input-icon">[Pass]</span>
             <input type="password" id="password" name="password" required placeholder="Your password" autocomplete="current-password">
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Log In ๐’–</button>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
       </form>
 
       <div class="auth-footer">

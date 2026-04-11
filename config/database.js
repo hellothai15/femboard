@@ -16,7 +16,7 @@ function getDatabase() {
 }
 
 function initializeDatabase() {
-  db.exec(
+  db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT UNIQUE NOT NULL,
@@ -35,7 +35,7 @@ function initializeDatabase() {
       slug TEXT UNIQUE NOT NULL,
       name TEXT NOT NULL,
       description TEXT,
-      icon TEXT DEFAULT '๐’ฌ',
+      icon TEXT DEFAULT '💬',
       color TEXT DEFAULT '#FF69B4',
       sort_order INTEGER DEFAULT 0,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -65,7 +65,7 @@ function initializeDatabase() {
       FOREIGN KEY (thread_id) REFERENCES threads(id),
       FOREIGN KEY (user_id) REFERENCES users(id)
     );
-  );
+  `);
 }
 
 function closeDatabase() {

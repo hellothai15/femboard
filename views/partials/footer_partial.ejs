@@ -1,8 +1,9 @@
-﻿  </main>
-  <%- include('partials/footer') %>
+﻿</main>
+<%- include('footer') %>
   <script src="/js/app.js"></script>
-  <% if (typeof extraJs !== 'undefined' && extraJs) { %>
+  <% if (typeof extraJs !=='undefined' && extraJs) { %>
     <script src="/js/<%= extraJs %>"></script>
-  <% } %>
-</body>
-</html>
+    <% } %>
+      </body>
+
+      </html>

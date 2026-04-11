@@ -18,11 +18,11 @@
             <p class="profile-bio"><%= profileUser.bio %></p>
           <% } %>
           <div class="profile-meta">
-            <span>๐“… Joined <%= new Date(profileUser.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %></span>
+            <span>Joined <%= new Date(profileUser.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %></span>
           </div>
         </div>
         <% if (isOwnProfile) { %>
-          <a href="/profile/<%= profileUser.username %>/edit" class="btn btn-outline">โ๏ธ Edit Profile</a>
+          <a href="/profile/<%= profileUser.username %>/edit" class="btn btn-outline">Edit Profile</a>
         <% } %>
       </div>
     </div>
@@ -40,10 +40,10 @@
       </div>
 
       <div class="profile-section">
-        <h2>Recent Activity ๐“</h2>
+        <h2>Recent Activity</h2>
         <% if (recentPosts.length === 0) { %>
           <div class="empty-state">
-            <div class="empty-icon">๐ธ</div>
+            <div class="empty-icon">[ ]</div>
             <p>No posts yet!</p>
           </div>
         <% } else { %>

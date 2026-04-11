@@ -7,13 +7,13 @@
     </div>
 
     <div class="settings-card">
-      <h1>โ๏ธ Edit Profile</h1>
+      <h1>Edit Profile</h1>
 
       <% if (error) { %>
-        <div class="alert alert-error"><span>โ ๏ธ</span> <%= error %></div>
+        <div class="alert alert-error"><span>[Error]</span> <%= error %></div>
       <% } %>
       <% if (success) { %>
-        <div class="alert alert-success"><span>โ…</span> <%= success %></div>
+        <div class="alert alert-success"><span>[OK]</span> <%= success %></div>
       <% } %>
 
       <!-- Avatar Upload -->
@@ -23,7 +23,7 @@
           <img src="<%= profileUser.avatar_url %>" alt="Current avatar" class="current-avatar">
           <form action="/profile/<%= profileUser.username %>/avatar" method="POST" enctype="multipart/form-data" class="avatar-form">
             <input type="file" name="avatar" id="avatar" accept="image/*" class="file-input">
-            <label for="avatar" class="btn btn-outline btn-sm">๐“ท Change Avatar</label>
+            <label for="avatar" class="btn btn-outline btn-sm">Change Avatar</label>
             <button type="submit" class="btn btn-primary btn-sm">Upload</button>
           </form>
           <p class="form-hint">Max 2MB. JPG, PNG, GIF, or WebP.</p>
@@ -40,10 +40,10 @@
           </div>
           <div class="form-group">
             <label for="bio">Bio</label>
-            <textarea id="bio" name="bio" rows="4" maxlength="500" placeholder="Tell everyone about yourself! ๐’–"><%= profileUser.bio || '' %></textarea>
+            <textarea id="bio" name="bio" rows="4" maxlength="500" placeholder="Tell everyone about yourself!"><%= profileUser.bio || '' %></textarea>
             <span class="form-hint">Max 500 characters</span>
           </div>
-          <button type="submit" class="btn btn-primary">Save Changes ๐’พ</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
       </div>
     </div>

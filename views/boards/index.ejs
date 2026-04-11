@@ -3,14 +3,14 @@
 <section class="boards-page">
   <div class="container">
     <div class="page-header">
-      <h1>๐“ All Boards</h1>
+      <h1>All Boards</h1>
       <p class="page-description">Pick a board and start chatting!</p>
     </div>
 
     <div class="boards-grid">
       <% boards.forEach(board => { %>
         <a href="/boards/<%= board.slug %>" class="board-card" style="--board-color: <%= board.color %>">
-          <div class="board-card-icon"><%= board.icon %></div>
+          <div class="board-card-icon"><%= (board.name && board.name[0]) || 'B' %></div>
           <div class="board-card-info">
             <h3>/<%= board.slug %>/ - <%= board.name %></h3>
             <p><%= board.description %></p>

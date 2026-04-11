@@ -8,7 +8,7 @@
 
     <div class="page-header" style="--board-color: <%= board.color %>">
       <div class="board-title-row">
-        <span class="board-page-icon"><%= board.icon %></span>
+        <span class="board-page-icon"><%= (board.name && board.name[0]) || 'B' %></span>
         <div>
           <h1>/<%= board.slug %>/ - <%= board.name %></h1>
           <p class="page-description"><%= board.description %></p>
@@ -16,7 +16,7 @@
       </div>
       <% if (user) { %>
         <button class="btn btn-primary" onclick="openNewThreadModal()">
-          โ๏ธ New Thread
+          New Thread
         </button>
       <% } %>
     </div>
@@ -24,7 +24,7 @@
     <div class="thread-list">
       <% if (threads.length === 0) { %>
         <div class="empty-state">
-          <div class="empty-icon">๐ธ</div>
+          <div class="empty-icon">[Empty]</div>
           <h3>No threads yet!</h3>
           <p>Be the first to start a discussion in this board.</p>
         </div>
@@ -32,15 +32,15 @@
         <% threads.forEach(thread => { %>
           <a href="/boards/<%= board.slug %>/thread/<%= thread.id %>" class="thread-card">
             <div class="thread-meta">
-              <% if (thread.is_pinned) { %><span class="badge badge-pinned">๐“ Pinned</span><% } %>
-              <% if (thread.is_locked) { %><span class="badge badge-locked">๐”’ Locked</span><% } %>
+              <% if (thread.is_pinned) { %><span class="badge badge-pinned">[Pin] Pinned</span><% } %>
+              <% if (thread.is_locked) { %><span class="badge badge-locked">[Lock] Locked</span><% } %>
             </div>
             <h3 class="thread-title"><%= thread.title %></h3>
             <div class="thread-info">
               <img src="<%= thread.avatar_url %>" alt="" class="thread-avatar">
               <span class="thread-author"><%= thread.display_name || thread.username %></span>
-              <span class="thread-replies">๐’ฌ <%= thread.reply_count || 0 %> replies</span>
-              <span class="thread-views">๐‘๏ธ <%= thread.view_count %> views</span>
+              <span class="thread-replies">[Replies] <%= thread.reply_count || 0 %> replies</span>
+              <span class="thread-views">[Views] <%= thread.view_count %> views</span>
             </div>
           </a>
         <% }); %>
@@ -62,7 +62,7 @@
   <div class="modal-backdrop" onclick="closeNewThreadModal()"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <h2>โ๏ธ New Thread in /<%= board.slug %>/</h2>
+      <h2>New Thread in /<%= board.slug %>/</h2>
       <button class="modal-close" onclick="closeNewThreadModal()">&times;</button>
     </div>
     <form action="/boards/<%= board.slug %>/new" method="POST">
@@ -76,7 +76,7 @@
       </div>
       <div class="form-actions">
         <button type="button" class="btn btn-outline" onclick="closeNewThreadModal()">Cancel</button>
-        <button type="submit" class="btn btn-primary">Create Thread ๐ธ</button>
+        <button type="submit" class="btn btn-primary">Create Thread</button>
       </div>
     </form>
   </div>
